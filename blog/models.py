@@ -7,6 +7,7 @@ class Post(models.Model):
     created_on = models.DateTimeField(auto_now_add=True) 
     last_updated = models.DateTimeField(auto_now=True)
     categories = models.ManyToManyField('Category', related_name='posts')
+
 class Category(models.Model):
     name = models.CharField(max_length=20)
 
@@ -14,4 +15,4 @@ class Comment(models.Model):
     author = models.CharField(max_length=100)
     body = models.TextField()
     created_on = models.DateTimeField(auto_now_add=True) 
-    post = models.ForeignKey('Post', on_delete = models.CASCADE)
+    post = models.ForeignKey('Post', on_delete=models.CASCADE)
